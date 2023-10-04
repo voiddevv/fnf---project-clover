@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs74voi8cu03a"]
+
+[ext_resource type="Script" path="res://autoload/FPS.gd" id="1_k5iin"]
+[ext_resource type="FontFile" uid="uid://42ib6rfobqap" path="res://assets/fonts/funkin.ttf" id="2_wtw3c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ad74e"]
+font = ExtResource("2_wtw3c")
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="FPS" type="CanvasLayer"]
+script = ExtResource("1_k5iin")
+
+[node name="FPSLabel" type="Label" parent="."]
+texture_filter = 2
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 139.0
+offset_bottom = 44.0
+text = "FPS : 100"
+label_settings = SubResource("LabelSettings_ad74e")

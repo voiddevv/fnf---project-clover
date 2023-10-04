@@ -1,0 +1,93 @@
+{
+	"textures": [
+		{
+			"image": "texture.png",
+			"size": {
+				"w": 922,
+				"h": 103
+			},
+			"sprites": [
+				{
+					"filename": "bad.png",
+					"region": {
+						"x": 0,
+						"y": 0,
+						"w": 124.6,
+						"h": 81.19999999999999
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "good.png",
+					"region": {
+						"x": 124.6,
+						"y": 0,
+						"w": 156.79999999999998,
+						"h": 86.8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "marvelous.png",
+					"region": {
+						"x": 281.4,
+						"y": 0,
+						"w": 256.9,
+						"h": 87.5
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "sick.png",
+					"region": {
+						"x": 538.3,
+						"y": 0,
+						"w": 203,
+						"h": 100.8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "shit.png",
+					"region": {
+						"x": 741.3,
+						"y": 0,
+						"w": 180.6,
+						"h": 102.89999999999999
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7",
+		"format": "RGBA8888",
+	}
+}

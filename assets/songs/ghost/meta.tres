@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SongMetaData" load_steps=4 format=3 uid="uid://ckhx36706n37s"]
+
+[ext_resource type="Script" path="res://scripts/SongMetaData.gd" id="1_bs2q7"]
+[ext_resource type="AudioStream" uid="uid://dycdo0s7nr578" path="res://assets/songs/ghost/music/Inst.ogg" id="2_3qak0"]
+[ext_resource type="AudioStream" uid="uid://b1ddc01xw0ntc" path="res://assets/songs/ghost/music/Voices.ogg" id="3_k5qa6"]
+
+[resource]
+script = ExtResource("1_bs2q7")
+display_name = "i like men"
+credits_info = {
+"Coder": "Void likes men"
+}
+tracks = Array[AudioStream]([ExtResource("2_3qak0"), ExtResource("3_k5qa6")])

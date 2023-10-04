@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SongMetaData" load_steps=4 format=3 uid="uid://c8tkmsqxdpo3n"]
+
+[ext_resource type="Script" path="res://scripts/SongMetaData.gd" id="1_efw73"]
+[ext_resource type="AudioStream" uid="uid://cj62brc7ptnqb" path="res://assets/songs/triple-b-trouble/music/Inst.ogg" id="2_1ntde"]
+[ext_resource type="AudioStream" uid="uid://dwg03ggy4dhm2" path="res://assets/songs/triple-b-trouble/music/Voices.ogg" id="3_jbelv"]
+
+[resource]
+script = ExtResource("1_efw73")
+display_name = "i like men"
+credits_info = {
+"Coder": "Void likes men"
+}
+tracks = Array[AudioStream]([ExtResource("2_1ntde"), ExtResource("3_jbelv")])

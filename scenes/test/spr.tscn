@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm0jnnk1repea"]
+
+[ext_resource type="Texture2D" uid="uid://y236282y83e7" path="res://assets/balls/texture.sprites/up static.tres" id="1_oeabb"]
+[ext_resource type="Texture2D" uid="uid://cs1txxkn3aeqi" path="res://assets/balls/texture.sprites/down static.tres" id="2_1nn8h"]
+[ext_resource type="Texture2D" uid="uid://byl385213gbmw" path="res://assets/balls/texture.sprites/left static.tres" id="3_3g8nn"]
+
+[node name="spr" type="Node2D"]
+
+[node name="up_static" type="Sprite2D" parent="."]
+position = Vector2(400, 474)
+texture = ExtResource("1_oeabb")
+
+[node name="down_static" type="Sprite2D" parent="."]
+position = Vector2(563, 472)
+texture = ExtResource("2_1nn8h")
+
+[node name="left_static" type="Sprite2D" parent="."]
+position = Vector2(249, 495)
+texture = ExtResource("3_3g8nn")

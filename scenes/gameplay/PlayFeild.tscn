@@ -1,0 +1,157 @@
+[gd_scene load_steps=12 format=3 uid="uid://dyu2jjhgxp33m"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/PlayFeild.gd" id="1_2mm07"]
+[ext_resource type="Script" path="res://scenes/gameplay/tracks.gd" id="2_cblej"]
+[ext_resource type="PackedScene" uid="uid://c51va3njlh2v1" path="res://scenes/gameplay/strums/4.tscn" id="2_l58o4"]
+[ext_resource type="Texture2D" uid="uid://bgrr1msaj8igl" path="res://assets/images/hex_cover.png" id="3_rjfa2"]
+[ext_resource type="Theme" uid="uid://3gyk8wcfh47g" path="res://Themes/game.tres" id="3_th3l4"]
+[ext_resource type="Shader" path="res://scenes/gameplay/cool.gdshader" id="4_lkrbt"]
+[ext_resource type="FontFile" uid="uid://bvui32h5gp78g" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="4_y8sni"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a0yyp"]
+noise_type = 3
+frequency = 0.045
+fractal_type = 0
+fractal_octaves = 10
+fractal_lacunarity = 8.0
+fractal_gain = 0.7
+fractal_ping_pong_strength = 7.0
+domain_warp_enabled = true
+domain_warp_amplitude = 100.0
+domain_warp_fractal_octaves = 2
+domain_warp_fractal_lacunarity = 12.0
+domain_warp_fractal_gain = 0.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nhopm"]
+seamless = true
+noise = SubResource("FastNoiseLite_a0yyp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p682q"]
+shader = ExtResource("4_lkrbt")
+shader_parameter/color = Color(0.45098, 0, 1, 1)
+shader_parameter/noise_ = SubResource("NoiseTexture2D_nhopm")
+
+[sub_resource type="LabelSettings" id="LabelSettings_f71sn"]
+font = ExtResource("4_y8sni")
+font_size = 14
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PlayFeild" type="Node2D" node_paths=PackedStringArray("cpu_strums", "player_strums")]
+script = ExtResource("1_2mm07")
+cpu_strums = [NodePath("HUD Layer/HUD/strums/cpu")]
+player_strums = [NodePath("HUD Layer/HUD/strums/player")]
+
+[node name="tracks" type="Node" parent="."]
+script = ExtResource("2_cblej")
+
+[node name="HUD Layer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="HUD Layer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 360)
+metadata/_edit_lock_ = true
+
+[node name="strums" type="Node2D" parent="HUD Layer/HUD"]
+
+[node name="cpu" parent="HUD Layer/HUD/strums" instance=ExtResource("2_l58o4")]
+position = Vector2(320, 100)
+
+[node name="player" parent="HUD Layer/HUD/strums" instance=ExtResource("2_l58o4")]
+position = Vector2(960, 100)
+handle_input = true
+auto_play = false
+
+[node name="info_container" type="PanelContainer" parent="HUD Layer/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.832469
+anchor_top = 0.0222222
+anchor_right = 0.988
+anchor_bottom = 0.3
+offset_left = -0.560059
+offset_right = 0.359985
+offset_bottom = -1.52588e-05
+grow_horizontal = 0
+theme = ExtResource("3_th3l4")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="color_rect" type="ColorRect" parent="HUD Layer/HUD/info_container"]
+material = SubResource("ShaderMaterial_p682q")
+layout_mode = 2
+
+[node name="v_box_container" type="VBoxContainer" parent="HUD Layer/HUD/info_container"]
+layout_mode = 2
+
+[node name="song_name" type="Label" parent="HUD Layer/HUD/info_container/v_box_container"]
+layout_mode = 2
+text = "Song: Detected"
+label_settings = SubResource("LabelSettings_f71sn")
+horizontal_alignment = 1
+
+[node name="cover_spr" type="TextureRect" parent="HUD Layer/HUD/info_container/v_box_container"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+texture = ExtResource("3_rjfa2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="v_separator" type="HSeparator" parent="HUD Layer/HUD/info_container/v_box_container"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="HUD Layer/HUD/info_container/v_box_container"]
+layout_mode = 2
+
+[node name="time_bar" type="ProgressBar" parent="HUD Layer/HUD/info_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("3_th3l4")
+
+[node name="h_flow_container" type="ScrollContainer" parent="HUD Layer/HUD"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 57.0
+
+[node name="v_box_container" type="VBoxContainer" parent="HUD Layer/HUD/h_flow_container"]
+layout_mode = 2
+alignment = 1
+
+[node name="song_name" type="Label" parent="HUD Layer/HUD/h_flow_container/v_box_container"]
+layout_mode = 2
+text = "Song: Detected"
+label_settings = SubResource("LabelSettings_f71sn")
+horizontal_alignment = 1
+
+[node name="cover_spr" type="TextureRect" parent="HUD Layer/HUD/h_flow_container/v_box_container"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+texture = ExtResource("3_rjfa2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="v_separator" type="HSeparator" parent="HUD Layer/HUD/h_flow_container/v_box_container"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="HUD Layer/HUD/h_flow_container/v_box_container"]
+layout_mode = 2
+
+[node name="time_bar" type="ProgressBar" parent="HUD Layer/HUD/h_flow_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("3_th3l4")
+
+[node name="notespawntimer" type="Timer" parent="."]
+wait_time = 0.067
+autostart = true
+
+[connection signal="timeout" from="notespawntimer" to="." method="spawn_notes" flags=3]

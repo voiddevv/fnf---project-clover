@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://3gyk8wcfh47g"]
+
+[ext_resource type="FontFile" uid="uid://bvui32h5gp78g" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="1_xff1y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gapkb"]
+bg_color = Color(0.454902, 0.329412, 0.74902, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.65098, 0.384314, 0.666667, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4jkd"]
+bg_color = Color(0.54902, 1, 0, 0.792157)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66q12"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[resource]
+default_font = ExtResource("1_xff1y")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_gapkb")
+ProgressBar/colors/font_color = Color(0.94902, 0.94902, 0.94902, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_shadow_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 4
+ProgressBar/font_sizes/font_size = 16
+ProgressBar/fonts/font = ExtResource("1_xff1y")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_b4jkd")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_66q12")

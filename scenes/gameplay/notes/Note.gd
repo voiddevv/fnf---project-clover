@@ -21,9 +21,12 @@ var was_hit:bool = false
 
 # exports
 @export var should_hit:bool = true
-@export var slices:int = 16
 @export var type:String = "Default"
 
 # scene vars
 @onready var sprite = $sprite
-@onready var sustain = $sustain
+@onready var sustain:Sustain = $sustain
+
+
+func position_x_to_strum():
+	position.x = strum.receptors[direction].position.x

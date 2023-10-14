@@ -1,4 +1,7 @@
 class_name Chart extends Resource
+
+
+
 var display_name:String = "test"
 var name:String = "test"
 var bpm:float

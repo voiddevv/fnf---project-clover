@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://bn5c80umbt7aa"]
+
+[ext_resource type="PackedScene" uid="uid://c51va3njlh2v1" path="res://scenes/gameplay/strums/4.tscn" id="1_57kra"]
+[ext_resource type="Script" path="res://scenes/sustain test.gd" id="1_ojtip"]
+[ext_resource type="Shader" path="res://scenes/AMONGUS.gdshader" id="3_bivbh"]
+[ext_resource type="Script" path="res://scenes/sustain.gd" id="3_i4srn"]
+[ext_resource type="Texture2D" uid="uid://bd6xll40r0q2c" path="res://assets/images/noteskins/pixel/NOTE_assetsENDS.png" id="5_1s7v7"]
+[ext_resource type="Texture2D" uid="uid://cec33kuvn4wfp" path="res://assets/images/noteskins/pixel/PIXEL_TAIL.tres" id="6_qxa5f"]
+[ext_resource type="PackedScene" uid="uid://clautk5buaifp" path="res://scenes/gameplay/notes/Default.tscn" id="7_0xin0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o17e3"]
+shader = ExtResource("3_bivbh")
+shader_parameter/R = Color(1, 0.447059, 0.188235, 1)
+shader_parameter/G = Color(1, 1, 1, 1)
+shader_parameter/B = Color(1, 0.643137, 0.498039, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i8ma"]
+atlas = ExtResource("5_1s7v7")
+region = Rect2(0, 0, 7, 6)
+
+[node name="sustain_test" type="Node2D"]
+script = ExtResource("1_ojtip")
+
+[node name="4" parent="." instance=ExtResource("1_57kra")]
+position = Vector2(640, 100)
+scroll_direction = 0.0
+
+[node name="sustain" type="Node2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_o17e3")
+scale = Vector2(6, 6)
+script = ExtResource("3_i4srn")
+sustain_texture = SubResource("AtlasTexture_5i8ma")
+tail_texture = ExtResource("6_qxa5f")
+length = -4.0
+
+[node name="Default" parent="." instance=ExtResource("7_0xin0")]
+position = Vector2(22, 7)

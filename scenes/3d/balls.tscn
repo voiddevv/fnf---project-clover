@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://by4gd5pnkqstp"]
+
+[ext_resource type="Texture2D" uid="uid://bqfd1lt150thi" path="res://assets/images/cat_image.jpg" id="1_hh6jw"]
+[ext_resource type="Script" path="res://scenes/3d/spiny.gd" id="1_y6ylt"]
+[ext_resource type="Texture2D" uid="uid://v4fhftlpqdqi" path="res://assets/fonts/wha.jpg" id="3_qw8ni"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wpgxk"]
+
+[sub_resource type="Environment" id="Environment_j7vxg"]
+glow_enabled = true
+glow_intensity = 8.0
+glow_strength = 0.67
+glow_blend_mode = 0
+glow_hdr_threshold = 0.0
+volumetric_fog_density = 0.0951
+volumetric_fog_emission = Color(1, 0, 0, 1)
+volumetric_fog_emission_energy = 0.4
+volumetric_fog_anisotropy = 0.9
+volumetric_fog_ambient_inject = 16.0
+adjustment_contrast = 8.0
+adjustment_saturation = 8.0
+
+[node name="balls" type="Node3D"]
+
+[node name="sprite_3d" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -94.038)
+pixel_size = 0.05
+texture = ExtResource("1_hh6jw")
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.767176, 0, 0.641436, 0.334739, 0.853032, -0.400357, -0.547166, 0.521859, 0.654426, 0, 0, -79.1433)
+mesh = SubResource("BoxMesh_wpgxk")
+script = ExtResource("1_y6ylt")
+
+[node name="camera_3d" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -75.9374)
+cull_mask = 1
+
+[node name="directional_light_3d" type="DirectionalLight3D" parent="."]
+
+[node name="world_environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_j7vxg")
+
+[node name="wha" type="Sprite2D" parent="."]
+position = Vector2(351, 243)
+texture = ExtResource("3_qw8ni")

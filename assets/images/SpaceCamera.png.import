@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtyam8705ivfq"
-path="res://.godot/imported/texture.png-248d2211dfb17104a7391a7e19300da6.ctex"
+uid="uid://cql1c2bohmpry"
+path="res://.godot/imported/SpaceCamera.png-882dce62c1113607c5bc749c73b1feae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/balls/texture.png"
-dest_files=["res://.godot/imported/texture.png-248d2211dfb17104a7391a7e19300da6.ctex"]
+source_file="res://assets/images/SpaceCamera.png"
+dest_files=["res://.godot/imported/SpaceCamera.png-882dce62c1113607c5bc749c73b1feae.ctex"]
 
 [params]
 

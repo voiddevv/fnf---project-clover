@@ -1,22 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://clautk5buaifp"]
+[gd_scene load_steps=6 format=3 uid="uid://clautk5buaifp"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/notes/Note.gd" id="1_fdxnt"]
 [ext_resource type="SpriteFrames" uid="uid://cftyqakg51i37" path="res://assets/images/noteskins/Arrows.res" id="1_w51so"]
-[ext_resource type="Texture2D" uid="uid://dw8qx5mivby5k" path="res://icon.svg" id="2_3efln"]
+[ext_resource type="Script" path="res://scenes/sustain.gd" id="2_yo2f0"]
+[ext_resource type="Texture2D" uid="uid://cfci4jmefkyys" path="res://assets/images/noteskins/pixel/PIXEL_HOLD.tres" id="3_rrkks"]
+[ext_resource type="Texture2D" uid="uid://cec33kuvn4wfp" path="res://assets/images/noteskins/pixel/PIXEL_TAIL.tres" id="4_1qsrq"]
 
 [node name="Default" type="Node2D"]
 script = ExtResource("1_fdxnt")
 
-[node name="sustain" type="Line2D" parent="."]
-texture_repeat = 2
-points = PackedVector2Array(0, 0, 0, 100)
-width = 25.0
-texture = ExtResource("2_3efln")
-texture_mode = 1
-end_cap_mode = 1
-sharp_limit = 32.0
-round_precision = 32
-antialiased = true
+[node name="sustain" type="Node2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+script = ExtResource("2_yo2f0")
+sustain_texture = ExtResource("3_rrkks")
+tail_texture = ExtResource("4_1qsrq")
+length = 4.0
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)

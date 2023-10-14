@@ -1,4 +1,3 @@
-@tool
 extends MeshInstance3D
 
 
@@ -9,5 +8,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-#	rotation_degrees.y += delta*100.0
-	pass
+	rotation_degrees.x += delta*50.0
+	rotation_degrees.z -= delta*50.0

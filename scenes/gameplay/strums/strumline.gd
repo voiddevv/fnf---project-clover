@@ -8,11 +8,11 @@ var actions:PackedStringArray = ["note_left","note_down","note_up","note_right"]
 @onready var receptors:Array[Receptor] = [$"0", $"1", $"2", $"3"]
 @onready var game:PlayFeild = $"../../../.."
 
-@onready var note_group = $notegroup
-
+@onready var note_group:NoteGroup = $notegroup
 var base_position_y:float = 75.0
 # 1 = down scroll 0 = upscroll
 @export var scroll_direction:float = 1
+
 func _ready() -> void:
 	for r in receptors:
 		r = r as Receptor

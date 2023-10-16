@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b7llkw2sdnuho"]
+
+[ext_resource type="Texture2D" uid="uid://dldlh72wnqr0b" path="res://assets/images/noteskins/fnf/NOTE_assets_quant.png" id="1_ximqe"]
+
+[resource]
+atlas = ExtResource("1_ximqe")
+region = Rect2(1974, 68, 50, 42)

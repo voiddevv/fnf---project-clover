@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dyu2jjhgxp33m"]
+[gd_scene load_steps=13 format=3 uid="uid://dyu2jjhgxp33m"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/PlayFeild.gd" id="1_2mm07"]
 [ext_resource type="Script" path="res://scenes/gameplay/tracks.gd" id="2_cblej"]
@@ -8,8 +8,6 @@
 [ext_resource type="Shader" path="res://scenes/gameplay/cool.gdshader" id="4_lkrbt"]
 [ext_resource type="FontFile" uid="uid://bvui32h5gp78g" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="4_y8sni"]
 [ext_resource type="Script" path="res://scenes/gameplay/draw_beat.gd" id="8_2v3nt"]
-[ext_resource type="Texture2D" uid="uid://bd0o5p61id03y" path="res://assets/bf-pixel.png" id="9_c04gn"]
-[ext_resource type="Texture2D" uid="uid://v4fhftlpqdqi" path="res://assets/fonts/wha.jpg" id="10_6mc1e"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_a0yyp"]
 noise_type = 3
@@ -54,17 +52,6 @@ script = ExtResource("2_cblej")
 
 [node name="HUD Layer" type="CanvasLayer" parent="."]
 
-[node name="wha" type="TextureRect" parent="HUD Layer"]
-texture_filter = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.997
-offset_left = -1.0
-offset_top = 318.0
-offset_right = -881.0
-offset_bottom = 0.159973
-texture = ExtResource("10_6mc1e")
-
 [node name="HUD" type="Control" parent="HUD Layer"]
 layout_mode = 3
 anchors_preset = 8
@@ -93,15 +80,13 @@ auto_play = false
 
 [node name="info_container" type="PanelContainer" parent="HUD Layer/HUD"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.832469
-anchor_top = 0.0222222
-anchor_right = 0.988
-anchor_bottom = 0.3
-offset_left = -0.560059
-offset_right = 0.359985
-offset_bottom = -1.52588e-05
-grow_horizontal = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.5
+offset_right = 107.5
+offset_bottom = 215.0
+grow_horizontal = 2
 theme = ExtResource("3_th3l4")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
@@ -135,31 +120,19 @@ layout_mode = 2
 [node name="time_bar" type="ProgressBar" parent="HUD Layer/HUD/info_container/v_box_container"]
 layout_mode = 2
 theme = ExtResource("3_th3l4")
-
-[node name="center_container" type="CenterContainer" parent="HUD Layer/HUD"]
-layout_mode = 2
-offset_left = 484.0
-offset_top = 60.0
-offset_right = 784.0
-offset_bottom = 210.0
-
-[node name="icon" type="TextureRect" parent="HUD Layer/HUD/center_container"]
-texture_filter = 1
-clip_contents = true
-custom_minimum_size = Vector2(300, 150)
-layout_mode = 2
-texture = ExtResource("9_c04gn")
-expand_mode = 3
-stretch_mode = 4
+value = 1.0
+exp_edit = true
+allow_greater = true
+allow_lesser = true
 
 [node name="beat_drawer" type="Control" parent="HUD Layer/HUD"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 533.0
-offset_right = 755.0
+offset_left = 537.0
+offset_right = 736.0
 offset_bottom = 720.0
 script = ExtResource("8_2v3nt")
-dps = 120
+dps = 4
 
 [node name="notespawntimer" type="Timer" parent="."]
 wait_time = 0.067

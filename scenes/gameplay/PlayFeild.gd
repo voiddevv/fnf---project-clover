@@ -46,8 +46,9 @@ func spawn_notes():
 		if data.hit_time - Conductor.time <= NoteGroup.scroll_speed / 0.5:
 			if last_data != null and abs(data.hit_time - last_data.hit_time) >= 0.005 and last_data.direction == data.direction and last_data.strum_index == data.strum_index:
 				print("stack note found")
-				continue
 				notes_spawned += 1 
+				continue
+
 			var _note:Note = template_notes["Default"].instantiate()
 			_note.hit_time = data.hit_time
 			_note.og_length = data.length*0.7
@@ -59,6 +60,7 @@ func spawn_notes():
 			_note.sprite.play(Receptor.NoteDirection.keys()[_note.direction].to_lower())
 			notes_spawned += 1
 			_note.position_x_to_strum()
+			_note.position.y = INF
 			last_data = data
 
 func load_song_meta():

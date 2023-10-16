@@ -1,23 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://clautk5buaifp"]
+[gd_scene load_steps=8 format=3 uid="uid://clautk5buaifp"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/notes/Note.gd" id="1_fdxnt"]
 [ext_resource type="SpriteFrames" uid="uid://cftyqakg51i37" path="res://assets/images/noteskins/Arrows.res" id="1_w51so"]
+[ext_resource type="Shader" path="res://scenes/AMONGUS.gdshader" id="2_h5aqe"]
 [ext_resource type="Script" path="res://scenes/sustain.gd" id="2_yo2f0"]
-[ext_resource type="Texture2D" uid="uid://cfci4jmefkyys" path="res://assets/images/noteskins/pixel/PIXEL_HOLD.tres" id="3_rrkks"]
-[ext_resource type="Texture2D" uid="uid://cec33kuvn4wfp" path="res://assets/images/noteskins/pixel/PIXEL_TAIL.tres" id="4_1qsrq"]
+[ext_resource type="Texture2D" uid="uid://b7llkw2sdnuho" path="res://assets/images/noteskins/fnf/hold.tres" id="3_rp8d3"]
+[ext_resource type="Texture2D" uid="uid://bt16061gvp0n1" path="res://assets/images/noteskins/fnf/tail.tres" id="4_ryo00"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hwo8o"]
+shader = ExtResource("2_h5aqe")
+shader_parameter/R = Color(0, 1, 1, 1)
+shader_parameter/G = Color(1, 1, 1, 1)
+shader_parameter/B = Color(0, 0.545098, 0.545098, 1)
 
 [node name="Default" type="Node2D"]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_fdxnt")
 
 [node name="sustain" type="Node2D" parent="."]
-texture_filter = 1
-scale = Vector2(6, 6)
+z_index = -1
+material = SubResource("ShaderMaterial_hwo8o")
 script = ExtResource("2_yo2f0")
-sustain_texture = ExtResource("3_rrkks")
-tail_texture = ExtResource("4_1qsrq")
-length = 4.0
+sustain_texture = ExtResource("3_rp8d3")
+tail_texture = ExtResource("4_ryo00")
+length = 60.0
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.7, 0.7)
 sprite_frames = ExtResource("1_w51so")
 animation = &"down"

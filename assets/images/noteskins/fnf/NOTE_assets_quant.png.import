@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd0o5p61id03y"
-path.bptc="res://.godot/imported/bf-pixel.png-168431b44ab5af76df4e876545e919cd.bptc.ctex"
+uid="uid://dldlh72wnqr0b"
+path.bptc="res://.godot/imported/NOTE_assets_quant.png-a19f7d1f192fd6dfe01a5c03dbf23b0e.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/bf-pixel.png"
-dest_files=["res://.godot/imported/bf-pixel.png-168431b44ab5af76df4e876545e919cd.bptc.ctex"]
+source_file="res://assets/images/noteskins/fnf/NOTE_assets_quant.png"
+dest_files=["res://.godot/imported/NOTE_assets_quant.png-a19f7d1f192fd6dfe01a5c03dbf23b0e.bptc.ctex"]
 
 [params]
 

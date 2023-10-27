@@ -1,52 +1,85 @@
-[gd_scene load_steps=11 format=3 uid="uid://bn5c80umbt7aa"]
+[gd_scene load_steps=10 format=3 uid="uid://bn5c80umbt7aa"]
 
-[ext_resource type="PackedScene" uid="uid://c51va3njlh2v1" path="res://scenes/gameplay/strums/4.tscn" id="1_57kra"]
 [ext_resource type="Script" path="res://scenes/sustain test.gd" id="1_ojtip"]
-[ext_resource type="Shader" path="res://scenes/AMONGUS.gdshader" id="3_bivbh"]
-[ext_resource type="Script" path="res://scenes/sustain.gd" id="3_i4srn"]
-[ext_resource type="Texture2D" uid="uid://bd6xll40r0q2c" path="res://assets/images/noteskins/pixel/NOTE_assetsENDS.png" id="5_1s7v7"]
-[ext_resource type="Texture2D" uid="uid://cec33kuvn4wfp" path="res://assets/images/noteskins/pixel/PIXEL_TAIL.tres" id="6_qxa5f"]
-[ext_resource type="PackedScene" uid="uid://clautk5buaifp" path="res://scenes/gameplay/notes/Default.tscn" id="7_0xin0"]
+[ext_resource type="Shader" path="res://scenes/piss.gdshader" id="2_3bn62"]
+[ext_resource type="Script" path="res://scenes/transion.gd" id="3_x372a"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o17e3"]
-shader = ExtResource("3_bivbh")
-shader_parameter/R = Color(1, 0.447059, 0.188235, 1)
-shader_parameter/G = Color(1, 1, 1, 1)
-shader_parameter/B = Color(1, 0.643137, 0.498039, 1)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_resp5"]
+noise_type = 3
+frequency = 0.04
+fractal_type = 3
+fractal_weighted_strength = 0.33
+domain_warp_type = 2
+domain_warp_amplitude = 15.0
+domain_warp_frequency = 0.1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5i8ma"]
-atlas = ExtResource("5_1s7v7")
-region = Rect2(0, 0, 7, 6)
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gawhb"]
+seamless = true
+noise = SubResource("FastNoiseLite_resp5")
 
-[sub_resource type="Environment" id="Environment_5hulv"]
-background_mode = 2
-glow_intensity = 8.0
-glow_blend_mode = 0
-glow_hdr_threshold = 0.5
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xsmqr"]
+shader = ExtResource("2_3bn62")
+shader_parameter/color = Color(0.784314, 0.490196, 0.776471, 1)
+shader_parameter/progress = 1.0
+shader_parameter/noise = SubResource("NoiseTexture2D_gawhb")
+
+[sub_resource type="Animation" id="Animation_gjm0y"]
+resource_name = "in"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("layer/color_rect:progress")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.732043, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2wl04"]
+resource_name = "out"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("layer/color_rect:progress")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a1cjw"]
+_data = {
+"in": SubResource("Animation_gjm0y"),
+"out": SubResource("Animation_2wl04")
+}
 
 [node name="sustain_test" type="Node2D"]
 script = ExtResource("1_ojtip")
 
-[node name="4" parent="." instance=ExtResource("1_57kra")]
-position = Vector2(640, 100)
-scroll_direction = 0.0
+[node name="layer" type="CanvasLayer" parent="."]
+layer = 127
 
-[node name="sustain" type="Node2D" parent="."]
-texture_filter = 1
-material = SubResource("ShaderMaterial_o17e3")
-position = Vector2(0, 2)
-scale = Vector2(6, 6)
-script = ExtResource("3_i4srn")
-sustain_texture = SubResource("AtlasTexture_5i8ma")
-tail_texture = ExtResource("6_qxa5f")
-length = -4.0
+[node name="color_rect" type="ColorRect" parent="layer"]
+material = SubResource("ShaderMaterial_xsmqr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("3_x372a")
+progress = 1.0
 
-[node name="Default" parent="." instance=ExtResource("7_0xin0")]
-position = Vector2(22, 7)
-
-[node name="world_environment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_5hulv")
-
-[node name="camera_3d" type="Camera3D" parent="."]
-
-[editable path="4"]
+[node name="animation_player" type="AnimationPlayer" parent="layer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_a1cjw")
+}

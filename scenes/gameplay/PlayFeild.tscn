@@ -80,13 +80,12 @@ auto_play = false
 
 [node name="info_container" type="PanelContainer" parent="HUD Layer/HUD"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -107.5
-offset_right = 107.5
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -215.0
 offset_bottom = 215.0
-grow_horizontal = 2
+grow_horizontal = 0
 theme = ExtResource("3_th3l4")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
@@ -126,13 +125,14 @@ allow_greater = true
 allow_lesser = true
 
 [node name="beat_drawer" type="Control" parent="HUD Layer/HUD"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 537.0
-offset_right = 736.0
-offset_bottom = 720.0
+layout_mode = 1
+anchor_left = 0.42
+anchor_right = 0.575
+anchor_bottom = 1.0
+offset_left = -0.600037
+offset_right = -6.10352e-05
 script = ExtResource("8_2v3nt")
-dps = 4
+dps = 100
 
 [node name="notespawntimer" type="Timer" parent="."]
 wait_time = 0.067

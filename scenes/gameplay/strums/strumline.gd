@@ -28,17 +28,16 @@ func _process(delta) -> void:
 		if not pressed[receptors.find(i)]:
 			i.play_anim(Receptor.STATIC)
 
-func int_from_event(ev:InputEventKey) -> int:
+func int_from_event(ev:InputEvent) -> int:
 	for str in actions:
 		if(ev.is_action(str)): 
 			return actions.find(str)
 	return -1
 	
 func _input(event:InputEvent) -> void:
-	if not event is InputEventKey or not handle_input: return
+	if event is InputEventMouseMotion or event == null or not handle_input: return
 	var input_dir:int = int_from_event(event)
 	if input_dir == -1: return
-	event = event as InputEventKey
 	var cool_notes:Array = note_group.get_children().duplicate().filter(func(_note:Note): return not _note.too_late and _note.can_hit and _note.direction == input_dir)
 	cool_notes.sort_custom(Chart.sort_hit_notes)
 	for note in cool_notes:

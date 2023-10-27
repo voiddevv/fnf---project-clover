@@ -9,6 +9,8 @@ extends Node2D
 func _process(delta):
 	queue_redraw()
 
+
 func _draw():
-	draw_texture_rect(sustain_texture,Rect2(-sustain_texture.get_width()/2.0,0,sustain_texture.get_width(),length),true)
-	draw_texture_rect(tail_texture,Rect2(-tail_texture.get_width()/2.0,abs(length),tail_texture.get_width(),tail_texture.get_height()),false)
+	if length <= 0: return
+	draw_texture_rect(sustain_texture,Rect2((-sustain_texture.get_width()/2.0),0,sustain_texture.get_width(),length),true)
+	draw_texture_rect(tail_texture,Rect2((-tail_texture.get_width()/2.0),abs(length),tail_texture.get_width(),tail_texture.get_height()),false)	

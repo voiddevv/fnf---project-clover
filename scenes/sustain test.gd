@@ -1,11 +1,9 @@
 extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@onready var animation_player = $layer/animation_player
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("note_left"): animation_player.play("in")
+	if Input.is_action_just_pressed("note_right"): animation_player.play("out")
 	pass
